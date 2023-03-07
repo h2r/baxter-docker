@@ -71,12 +71,10 @@ RUN mkdir -p $HOME/catkin_ws/src
 RUN rosdep update
 #baxter sdk install
 
-RUN cd ~/catkin_ws/src
-RUN  wstool init .
-RUN wstool merge https://raw.githubusercontent.com/RethinkRobotics/baxter/master/baxter_sdk.rosinstall
-RUN wstool update
-RUN cd ~/catkin_ws
-RUN catkin_make
+RUN cd ~/catkin_ws/src && wstool init .
+RUN cd ~/catkin_ws/src && wstool merge https://raw.githubusercontent.com/RethinkRobotics/baxter/master/baxter_sdk.rosinstall
+RUN cd ~/catkin_ws/src && wstool update
+RUN cd ~/catkin_ws && source /opt/ros/indigo/setup.bash && catkin_make
 
 CMD ["bash"]
 
