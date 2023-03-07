@@ -75,9 +75,8 @@ RUN cd ~/catkin_ws/src
 RUN  wstool init .
 RUN wstool merge https://raw.githubusercontent.com/RethinkRobotics/baxter/master/baxter_sdk.rosinstall
 RUN wstool update
-
-
-
+RUN cd ~/catkin_ws
+RUN catkin_make
 
 CMD ["bash"]
 
