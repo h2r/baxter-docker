@@ -44,21 +44,11 @@ ARG hostgroup
 ARG hostuid
 ARG hostgid
 ARG hostname
-ARG i2cgid
-ARG dialoutgid
-ARG videogid
 
 RUN echo Host user is $hostuser:$hostuser
 RUN groupadd --gid $hostgid $hostgroup
-RUN groupmod --gid $i2cgid i2c; exit 0
-RUN groupmod --gid $dialoutgid dialout
-RUN groupmod --gid $videogid video
 RUN adduser --disabled-password --gecos '' --gid $hostgid --uid $hostuid $hostuser
 RUN adduser $hostuser sudo
-RUN adduser $hostuser i2c
-RUN adduser $hostuser dialout
-RUN adduser $hostuser video
-
 
 # Ensure sudo group users are not asked for a p3assword when using sudo command
 # by ammending sudoers file
