@@ -35,7 +35,7 @@ RUN apt-get install -y python-scipy
 RUN apt-get install -y locate
 
 # ein stuff
-RUN apt-get install qt5-default python-wstool ros-kinetic-object-recognition-msgs libgsl0-dev ros-kinetic-serial ros-kinetic-object-recognition-msgs ros-kinetic-pcl-ros libgsl0-dev qt5-default screen -y
+#RUN apt-get install qt5-default python-wstool ros-kinetic-object-recognition-msgs libgsl0-dev ros-kinetic-serial ros-kinetic-object-recognition-msgs ros-kinetic-pcl-ros libgsl0-dev qt5-default screen
 
 
 #copied and paste from pidrone dockerfile
