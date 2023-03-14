@@ -68,8 +68,8 @@ RUN rosdep update
 RUN cd ~/catkin_ws/src && wstool init .
 RUN cd ~/catkin_ws/src && wstool merge https://raw.githubusercontent.com/RethinkRobotics/baxter/master/baxter_sdk.rosinstall
 RUN cd ~/catkin_ws/src && wstool update
-RUN cd ~/catkin_ws/src && git clone https://github.com/h2r/ein
-RUN cd ~/catkin_ws/src/ein && git checkout  && git clone https://github.com/h2r/ein
+#RUN cd ~/catkin_ws/src && git clone https://github.com/h2r/ein
+#RUN cd ~/catkin_ws/src/ein && git checkout 
 
 RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
 RUN cp ~/catk in_ws/src/baxter/baxter.sh ~/catkin_ws
