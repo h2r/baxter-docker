@@ -46,8 +46,8 @@ ARG hostgid
 ARG hostname
 
 RUN echo Host user is $hostuser:$hostuser
-RUN groupadd --gid $hostgid $hostgroup
-RUN adduser --disabled-password --gecos '' --gid $hostgid --uid $hostuid $hostuser
+RUN groupadd --gid $hostgid $hostgroup || true
+RUN adduser --disabled-password --gecos '' --gid $hostgid --uid $hostuid $hostuser 
 RUN adduser $hostuser sudo
 
 # Ensure sudo group users are not asked for a p3assword when using sudo command
@@ -72,7 +72,7 @@ RUN cd ~/catkin_ws/src && wstool update
 #RUN cd ~/catkin_ws/src/ein && git checkout 
 
 RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
-RUN cp ~/catk in_ws/src/baxter/baxter.sh ~/catkin_ws
+RUN cp ~/catkin_ws/src/baxter/baxter.sh ~/catkin_ws
 
 
 
