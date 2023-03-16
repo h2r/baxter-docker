@@ -34,8 +34,6 @@ RUN apt-get install -y python-smbus
 RUN apt-get install -y python-scipy
 RUN apt-get install -y locate
 
-# ein stuff
-#RUN apt-get install qt5-default python-wstool ros-kinetic-object-recognition-msgs libgsl0-dev ros-kinetic-serial ros-kinetic-object-recognition-msgs ros-kinetic-pcl-ros libgsl0-dev qt5-default screen
 
 
 #copied and paste from pidrone dockerfile
@@ -68,13 +66,22 @@ RUN rosdep update
 RUN cd ~/catkin_ws/src && wstool init .
 RUN cd ~/catkin_ws/src && wstool merge https://raw.githubusercontent.com/RethinkRobotics/baxter/master/baxter_sdk.rosinstall
 RUN cd ~/catkin_ws/src && wstool update
-#RUN cd ~/catkin_ws/src && git clone https://github.com/h2r/ein
-#RUN cd ~/catkin_ws/src/ein && git checkout 
 
 RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
 RUN cp ~/catkin_ws/src/baxter/baxter.sh ~/catkin_ws
 
 
 
-CMD ["bash"]
 
+
+
+
+# ein stuff
+RUN cd ~/catkin_ws/src && git clone https://github.com/h2r/ein
+RUN cd ~/catkin_ws/src/ein && git checkout develop
+RUN sudo apt-get install -y qt5-default python-wstool ros-kinetic-object-recognition-msgs libgsl0-dev ros-kinetic-serial ros-kinetic-object-recognition-msgs ros-kinetic-pcl-ros libgsl0-dev qt5-default screen libopencv-dev
+RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
+
+
+
+CMD ["bash"]
