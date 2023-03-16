@@ -83,5 +83,4 @@ RUN sudo apt-get install -y qt5-default python-wstool ros-kinetic-object-recogni
 RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
 
 
-
 CMD ["bash"]
