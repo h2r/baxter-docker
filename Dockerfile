@@ -36,6 +36,9 @@ RUN apt-get install -y locate
 
 
 
+
+
+
 #copied and paste from pidrone dockerfile
 ARG hostuser
 ARG hostgroup
@@ -68,10 +71,7 @@ RUN cd ~/catkin_ws/src && wstool merge https://raw.githubusercontent.com/Rethink
 RUN cd ~/catkin_ws/src && wstool update
 
 RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
-RUN cp ~/catkin_ws/src/baxter/baxter.sh ~/catkin_ws
-
-
-
+COPY baxter.sh /home/$hostuser/catkin_ws/baxter.sh
 
 
 
