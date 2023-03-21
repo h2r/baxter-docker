@@ -19,12 +19,13 @@ unset your_hostname
 # will be overwritten by any variables set here.
 
 # Specify Baxter's hostname
-baxter_hostname="winnie.rlab.cs.brown.edu"
+#baxter_hostname="winnie.rlab.cs.brown.edu"
+baxter_hostname="138.16.161.14"
 
 # Set *Either* your computers ip address or hostname. Please note if using
 # your_hostname that this must be resolvable to Baxter.
-your_ip="138.16.161.14"
-#your_hostname="$HOSTNAME"
+your_ip="138.16.161.177"
+#your_hostname="$HOSTNAME.rlab.cs.brown.edu"
 
 # Specify ROS distribution (e.g. indigo, hydro, etc.)
 ros_version="kinetic"

@@ -71,16 +71,18 @@ RUN cd ~/catkin_ws/src && wstool merge https://raw.githubusercontent.com/Rethink
 RUN cd ~/catkin_ws/src && wstool update
 
 RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
-COPY baxter.sh /home/$hostuser/catkin_ws/baxter.sh
-
 
 
 
 # ein stuff
 RUN cd ~/catkin_ws/src && git clone https://github.com/h2r/ein
 RUN cd ~/catkin_ws/src/ein && git checkout develop
-RUN sudo apt-get install -y qt5-default python-wstool ros-kinetic-object-recognition-msgs libgsl0-dev ros-kinetic-serial ros-kinetic-object-recognition-msgs ros-kinetic-pcl-ros libgsl0-dev qt5-default screen libopencv-dev
+RUN sudo apt-get install -y qt5-default python-wstool ros-kinetic-object-recognition-msgs libgsl0-dev ros-kinetic-serial ros-kinetic-object-recognition-msgs ros-kinetic-pcl-ros libgsl0-dev qt5-default screen libopencv-dev librospack-dev
 RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
 
+
+
+
+COPY baxter.sh /home/$hostuser/catkin_ws/baxter.sh
 
 CMD ["bash"]
