@@ -79,8 +79,8 @@ RUN cp ~/catkin_ws/src/baxter/baxter.sh ~/catkin_ws
 RUN sudo apt-get install -y libgl1-mesa-glx mesa-utils
 
 # nvidia-container-runtime
-LABEL com.nvidia.volumes.needed="nvidia_driver"
-ENV PATH /usr/local/nvidia/bin:${PATH}
-ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+#LABEL com.nvidia.volumes.needed="nvidia_driver"
+#ENV PATH /usr/local/nvidia/bin:${PATH}
+#ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
 
 CMD ["bash"]
