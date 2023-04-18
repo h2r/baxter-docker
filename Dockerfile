@@ -34,6 +34,7 @@ RUN apt-get install -y python-smbus
 RUN apt-get install -y python-scipy
 RUN apt-get install -y locate
 
+
 # ein stuff
 #RUN apt-get install qt5-default python-wstool ros-kinetic-object-recognition-msgs libgsl0-dev ros-kinetic-serial ros-kinetic-object-recognition-msgs ros-kinetic-pcl-ros libgsl0-dev qt5-default screen
 
@@ -49,6 +50,7 @@ RUN echo Host user is $hostuser:$hostuser
 RUN groupadd --gid $hostgid $hostgroup || true
 RUN adduser --disabled-password --gecos '' --gid $hostgid --uid $hostuid $hostuser 
 RUN adduser $hostuser sudo
+RUN adduser $hostuser video
 
 # Ensure sudo group users are not asked for a p3assword when using sudo command
 # by ammending sudoers file
@@ -74,7 +76,13 @@ RUN cd ~/catkin_ws/src && wstool update
 RUN cd ~/catkin_ws && source /opt/ros/kinetic/setup.bash && catkin_make
 RUN cp ~/catkin_ws/src/baxter/baxter.sh ~/catkin_ws
 
+RUN sudo apt-get install -y libgl1-mesa-glx mesa-utils
 
+# nvidia-container-runtime
+LABEL com.nvidia.volumes.needed="nvidia_driver"
+ENV PATH /usr/local/nvidia/bin:${PATH}
+ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
 
 CMD ["bash"]
+
 
