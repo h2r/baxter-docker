@@ -35,7 +35,6 @@ docker run -it \
     --volume="$XAUTH:$XAUTH" \
     --net=host \
     --privileged
-    --runtime=nvidia \ 
     baxter \     
     bash
 

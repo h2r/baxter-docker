@@ -14,7 +14,6 @@ task :start do
 end
 
 task :run do
-  #  sh "docker run --rm -ti --net=host --privileged --volume='/home/julia/.Xauthority:/root/.Xauthority:rw' --ipc=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --env='QT_X11_NO_MITSHM=1' --env  LIBGL_ALWAYS_INDIRECT=1  baxter"
-  sh "docker run --rm -ti --net=host --privileged --volume='/home/julia/.Xauthority:/root/.Xauthority:rw' --ipc=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix baxter"
+  sh "../nvidia-docker/nvidia-docker run --rm -ti --net=host --privileged --volume='/home/julia/.Xauthority:/root/.Xauthority:rw' --ipc=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --env='QT_X11_NO_MITSHM=1' --env  LIBGL_ALWAYS_INDIRECT=1  baxter"
   
 end
